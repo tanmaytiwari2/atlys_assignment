@@ -2,7 +2,8 @@ import cn from "classnames";
 import { useFormContext } from "react-hook-form";
 import { MdError } from "react-icons/md";
 import { findInputError, isFormInvalid } from "../../../utils";
-import "./InputField.css";
+import "./index.css";
+
 export const InputField = ({
   name,
   label,

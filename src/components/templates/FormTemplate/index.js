@@ -1,41 +1,37 @@
-import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { BsFillCheckSquareFill } from "react-icons/bs";
-import {
-  email_validation,
-  password_validation,
-} from "../../../utils/inputValidations";
-import { InputField } from "../../atoms/InputField/InputField";
-import "./LoginForm.css";
-import { LOGIN_FORM } from "./constants";
 import { GoArrowRight } from "react-icons/go";
+import { InputField } from "../../atoms/InputField";
+import "./index.css";
 
-export const LoginForm = () => {
+export const FormTemplate = ({
+  header,
+  subheader,
+  fields,
+  ctaText,
+  onCtaSubmit,
+}) => {
   const methods = useForm();
 
   const onSubmit = methods.handleSubmit((data) => {
     console.log(data);
+    onCtaSubmit();
     methods.reset();
   });
 
   return (
     <FormProvider {...methods}>
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        noValidate
-        autoComplete="off"
-        className="login-container"
-      >
+      <form onSubmit={(e) => e.preventDefault()} noValidate autoComplete="off">
         <div className="header-container">
-          <div className="header">{LOGIN_FORM.HEADER}</div>
-          <div className="sub-header">{LOGIN_FORM.SUB_HEADER}</div>
+          <div className="header">{header}</div>
+          <div className="sub-header">{subheader}</div>
         </div>
         <div className="">
-          <InputField {...email_validation} />
-          <InputField {...password_validation} />
+          {fields.map((field) => (
+            <InputField {...field} />
+          ))}
         </div>
         <button onClick={onSubmit} className="submit-button">
-          Login now
+          {ctaText}
         </button>
         <div className="link-container">
           <span className="link-prefix">Not registerd yet?</span>

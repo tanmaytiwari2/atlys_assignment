@@ -1,8 +1,9 @@
-import { LoginForm } from "./Components/organisms/LoginForm/LoginForm";
+import RootLayout from "./components/organisms/RootLayout";
+import LoginForm from "./pages/LoginForm";
 
 export const routes = [
   {
-    path: "/",
-    element: <LoginForm />,
+    element: <RootLayout />,
+    children: [{ path: "/", element: <LoginForm /> }],
   },
 ];
