@@ -9,6 +9,9 @@ export const FormTemplate = ({
   fields,
   ctaText,
   onCtaSubmit,
+  linkText,
+  linkSubText,
+  onLinkClick,
 }) => {
   const methods = useForm();
 
@@ -26,17 +29,17 @@ export const FormTemplate = ({
           <div className="sub-header">{subheader}</div>
         </div>
         <div className="">
-          {fields.map((field) => (
-            <InputField {...field} />
+          {fields.map((field, index) => (
+            <InputField key={index} {...field} />
           ))}
         </div>
         <button onClick={onSubmit} className="submit-button">
           {ctaText}
         </button>
         <div className="link-container">
-          <span className="link-prefix">Not registerd yet?</span>
-          <span className="link">
-            <span className="link-text">Register</span>
+          <span className="link-prefix">{linkSubText}</span>
+          <span className="link" onClick={onLinkClick}>
+            <span className="link-text">{linkText}</span>
             <div className="link-icon">
               <GoArrowRight color="white" size={16} />
             </div>

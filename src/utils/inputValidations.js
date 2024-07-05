@@ -1,9 +1,9 @@
-export const name_validation = {
+export const username_validation = {
   name: "name",
-  label: "name",
+  label: "Username",
   type: "text",
   id: "name",
-  placeholder: "write your name ...",
+  placeholder: "Choose a preferred username",
   validation: {
     required: {
       value: true,
