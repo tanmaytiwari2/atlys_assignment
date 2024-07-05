@@ -1,10 +1,13 @@
+import * as React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import { LoginForm } from "./components/organisms/LoginForm/LoginForm";
+import { routes } from "./router";
 
 function App() {
+  const router = createBrowserRouter(routes);
   return (
     <div className="app-container">
-      <LoginForm />
+      <RouterProvider router={router} />
     </div>
   );
 }
