@@ -1,0 +1,16 @@
+.input-field {
+  border: 1.5px solid #35373b;
+  background: #7f8084;
+  width: 415px;
+  height: 43px;
+  border-radius: 4px;
+}
+
+.label-text {
+  color: #c5c7ca;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.94px;
+  text-align: left;
+}
