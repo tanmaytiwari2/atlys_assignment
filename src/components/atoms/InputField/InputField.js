@@ -23,7 +23,7 @@ export const InputField = ({
 
   return (
     <div className={cn(className)}>
-      <div>
+      <div className="label-container">
         <label htmlFor={id} className="label-text">
           {label}
         </label>
@@ -57,9 +57,9 @@ export const InputField = ({
 
 const InputError = ({ message }) => {
   return (
-    <>
-      <MdError />
-      {message}
-    </>
+    <div className="error-container">
+      <MdError color="red" />
+      <span className="error-message">{message}</span>
+    </div>
   );
 };

@@ -1,0 +1,71 @@
+.login-container {
+  border-radius: 8px;
+  border: 2px solid #969696;
+  padding: 40px 24px;
+  background: #27292d;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.94px;
+  color: #6b6c70;
+  margin-bottom: 8px;
+}
+
+.sub-header {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21.78px;
+  color: #ffffff;
+  margin-bottom: 35px;
+}
+
+.submit-button {
+  width: 415px;
+  height: 43px;
+  border-radius: 4px;
+  background: #4a96ff;
+  border-color: #4a96ff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.36px;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.link-container {
+  display: flex;
+  margin-top: 12px;
+}
+
+.link-prefix {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.94px;
+  color: #7f8084;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.94px;
+  color: #c5c7ca;
+  cursor: pointer;
+
+  .link-icon {
+    margin-top: 2px;
+  }
+
+  .link-text {
+    margin: 0 5px;
+  }
+}

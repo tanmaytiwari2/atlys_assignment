@@ -1,16 +1,40 @@
 .input-field {
   border: 1.5px solid #35373b;
-  background: #7f8084;
-  width: 415px;
-  height: 43px;
+  width: 386px;
   border-radius: 4px;
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: left;
+  color: #7f8084;
+  background-color: transparent;
+}
+
+.label-container {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .label-text {
   color: #c5c7ca;
-  font-family: Inter;
   font-size: 14px;
   font-weight: 500;
   line-height: 16.94px;
-  text-align: left;
+}
+
+.error-container {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  margin-left: 5px;
 }
