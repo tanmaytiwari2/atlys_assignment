@@ -11,11 +11,14 @@ import {
   LOGIN_FORM,
   SIGN_UP_FORM,
 } from "../../templates/FormTemplate/constants";
+import { localStorage } from "../../../utils/localStorageUtils";
+import { signInHandler, signUpHandler } from "../../../utils/loginUtils";
 
 function RootLayout() {
   let [searchParams, setSearchParams] = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modelContent, setModalContent] = useState(null);
+
   const openModal = (content) => {
     setIsModalOpen(true);
     setModalContent(
@@ -24,6 +27,7 @@ function RootLayout() {
             ...LOGIN_FORM,
             fields: [email_validation, password_validation],
             onLinkClick: () => setSearchParams({ register: "true" }),
+            onCtaSubmit: signInHandler,
           }
         : {
             ...SIGN_UP_FORM,
@@ -33,6 +37,7 @@ function RootLayout() {
               password_validation,
             ],
             onLinkClick: () => setSearchParams({ login: "true" }),
+            onCtaSubmit: signUpHandler,
           }
     );
   };
@@ -62,7 +67,7 @@ function RootLayout() {
             header={modelContent?.header}
             subheader={modelContent?.subHeader}
             ctaText={modelContent?.ctaText}
-            onCtaSubmit={() => {}}
+            onCtaSubmit={modelContent?.onCtaSubmit}
             fields={modelContent?.fields}
             linkText={modelContent?.linkText}
             linkSubText={modelContent?.linkSubText}

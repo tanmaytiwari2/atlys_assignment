@@ -1,0 +1,8 @@
+.card-container {
+  border: 2px solid #35373b;
+  border-radius: 8px;
+  padding: 24px 20px;
+  background: #27292d;
+  display: flex;
+  flex-direction: column;
+}
