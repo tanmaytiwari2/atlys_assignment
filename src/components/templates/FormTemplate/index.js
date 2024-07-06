@@ -17,7 +17,7 @@ export const FormTemplate = ({
 
   const onSubmit = methods.handleSubmit((data) => {
     console.log(data);
-    onCtaSubmit();
+    onCtaSubmit(data);
     methods.reset();
   });
 
@@ -25,8 +25,8 @@ export const FormTemplate = ({
     <FormProvider {...methods}>
       <form onSubmit={(e) => e.preventDefault()} noValidate autoComplete="off">
         <div className="header-container">
-          <div className="header">{header}</div>
-          <div className="sub-header">{subheader}</div>
+          {header && <div className="header">{header}</div>}
+          {subheader && <div className="sub-header">{subheader}</div>}
         </div>
         <div className="">
           {fields.map((field, index) => (

@@ -7,16 +7,19 @@ import {
   password_validation,
 } from "../../utils/inputValidations";
 import "./index.css";
+import { localStorage } from "../../utils/localStorageUtils";
+import { signInHandler } from "../../utils/loginUtils";
 
-function LoginForm() {
+function Login() {
   let [searchParams, setSearchParams] = useSearchParams();
+
   return (
     <div className="login-container">
       <FormTemplate
         header={LOGIN_FORM.header}
         subheader={LOGIN_FORM.subHeader}
         ctaText={LOGIN_FORM.ctaText}
-        onCtaSubmit={() => {}}
+        onCtaSubmit={signInHandler}
         onLinkClick={() => setSearchParams({ register: "true" })}
         fields={[email_validation, password_validation]}
         linkText={LOGIN_FORM.linkText}
@@ -26,4 +29,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default Login;
