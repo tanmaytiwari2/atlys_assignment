@@ -7,12 +7,13 @@ const Modal = ({ isModalOpen, modalContent, onClose, children }) => {
     return null;
   }
   return (
-    <section className="modal">
-      <article className="modal-content">
-        <div className="exit-icon">
-          <img src={closeButton} onClick={onClose} />
-        </div>
-        {/* <main className="modal-mainContents">
+    <>
+      <section className="modal">
+        <article className="modal-content">
+          <div className="exit-icon">
+            <img src={closeButton} onClick={onClose} />
+          </div>
+          {/* <main className="modal-mainContents">
           <h5 className="modal-title">{modalContent.title}</h5>
           <hr />
           <div className="modal-image text-center mt-lg-2">
@@ -23,9 +24,11 @@ const Modal = ({ isModalOpen, modalContent, onClose, children }) => {
             <button>{modalContent.buttonText}</button>
           </div>
         </main> */}
-        {children}
-      </article>
-    </section>
+          {children}
+        </article>
+      </section>
+      <div id="modal-backdrop" className="modal-backdrop "></div>
+    </>
   );
 };
 

@@ -5,14 +5,13 @@ import {
   password_validation,
   username_validation,
 } from "../../../utils/inputValidations";
+import { signInHandler, signUpHandler } from "../../../utils/loginUtils";
 import Modal from "../../atoms/Modal";
 import { FormTemplate } from "../../templates/FormTemplate";
 import {
   LOGIN_FORM,
   SIGN_UP_FORM,
 } from "../../templates/FormTemplate/constants";
-import { localStorage } from "../../../utils/localStorageUtils";
-import { signInHandler, signUpHandler } from "../../../utils/loginUtils";
 
 function RootLayout() {
   let [searchParams, setSearchParams] = useSearchParams();
@@ -27,7 +26,10 @@ function RootLayout() {
             ...LOGIN_FORM,
             fields: [email_validation, password_validation],
             onLinkClick: () => setSearchParams({ register: "true" }),
-            onCtaSubmit: signInHandler,
+            onCtaSubmit: (data) => {
+              signInHandler(data);
+              closeModal();
+            },
           }
         : {
             ...SIGN_UP_FORM,
@@ -37,7 +39,10 @@ function RootLayout() {
               password_validation,
             ],
             onLinkClick: () => setSearchParams({ login: "true" }),
-            onCtaSubmit: signUpHandler,
+            onCtaSubmit: (data) => {
+              signUpHandler(data);
+              setSearchParams({ login: true });
+            },
           }
     );
   };
@@ -61,20 +66,18 @@ function RootLayout() {
   return (
     <>
       <Outlet />
-      <section>
-        <Modal isModalOpen={isModalOpen} onClose={closeModal}>
-          <FormTemplate
-            header={modelContent?.header}
-            subheader={modelContent?.subHeader}
-            ctaText={modelContent?.ctaText}
-            onCtaSubmit={modelContent?.onCtaSubmit}
-            fields={modelContent?.fields}
-            linkText={modelContent?.linkText}
-            linkSubText={modelContent?.linkSubText}
-            onLinkClick={modelContent?.onLinkClick}
-          />
-        </Modal>
-      </section>
+      <Modal isModalOpen={isModalOpen} onClose={closeModal}>
+        <FormTemplate
+          header={modelContent?.header}
+          subheader={modelContent?.subHeader}
+          ctaText={modelContent?.ctaText}
+          onCtaSubmit={modelContent?.onCtaSubmit}
+          fields={modelContent?.fields}
+          linkText={modelContent?.linkText}
+          linkSubText={modelContent?.linkSubText}
+          onLinkClick={modelContent?.onLinkClick}
+        />
+      </Modal>
     </>
   );
 }

@@ -1,8 +1,10 @@
+import { FEEDS_PAGE } from "../pages/Feeds/constants";
+
 export const username_validation = {
-  name: "name",
+  name: "username",
   label: "Username",
   type: "text",
-  id: "name",
+  id: "username",
   placeholder: "Choose a preferred username",
   validation: {
     required: {
@@ -49,6 +51,23 @@ export const email_validation = {
       value:
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       message: "Email not valid",
+    },
+  },
+};
+
+export const post_validation = {
+  name: "post",
+  type: "text",
+  id: "post",
+  placeholder: FEEDS_PAGE.PLACEHOLDER,
+  validation: {
+    required: {
+      value: true,
+      message: "required",
+    },
+    maxLength: {
+      value: 400,
+      message: "400 characters max",
     },
   },
 };
