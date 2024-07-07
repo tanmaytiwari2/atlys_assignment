@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import CreatePost from "../../components/organisms/CreatePost";
 import FeedCard from "../../components/organisms/FeedCard";
 import { localStorage } from "../../utils/localStorageUtils";
-import { FEEDS_PAGE } from "./constants";
+import { DEFAULT_FEEDS, FEEDS_PAGE } from "./constants";
 import "./index.css";
 
 function Feeds() {
   const [feeds, setfeeds] = useState([]);
+
   useEffect(() => {
-    setfeeds(localStorage.get("posts") || []);
+    setfeeds([...(localStorage.get("posts") || []), ...DEFAULT_FEEDS]);
   }, []);
 
   return (
@@ -18,12 +19,7 @@ function Feeds() {
       <CreatePost />
       {feeds.map((feed, index) => (
         <div className="feed-card-wrapper" key={feed.userName + index}>
-          <FeedCard
-            userName={feed.userName}
-            text={feed.text}
-            timeline={feed?.timeline}
-            commentsCount={feed?.commentsCount}
-          />
+          <FeedCard {...feed} />
         </div>
       ))}
     </div>

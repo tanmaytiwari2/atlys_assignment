@@ -13,15 +13,14 @@ function CreatePost() {
   let [searchParams, setSearchParams] = useSearchParams();
 
   const onSubmit = methods.handleSubmit((data) => {
-    console.log(data);
     const feeds = localStorage.get("posts") || [];
     const loggedInUser = localStorage.get("loggedInUser");
     if (!loggedInUser) {
       setSearchParams({ login: "true" });
     }
     localStorage.set("posts", [
-      ...feeds,
       { text: data.post, userName: loggedInUser },
+      ...feeds,
     ]);
     methods.reset();
   });

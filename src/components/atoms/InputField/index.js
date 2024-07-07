@@ -1,7 +1,9 @@
 import cn from "classnames";
+import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { MdError } from "react-icons/md";
 import emoji from "../../../assets/icons/emoji.png";
+import eye from "../../../assets/icons/eye.png";
 import { findInputError, isFormInvalid } from "../../../utils";
 import "./index.css";
 
@@ -15,11 +17,16 @@ export const InputField = ({
   multiline = false,
   className,
 }) => {
+  const [inputType, setInputType] = useState(type);
   const { register = () => {}, formState = {} } = useFormContext() || {};
   const { errors = {} } = formState;
 
   const inputErrors = findInputError(errors, name);
   const isInvalid = isFormInvalid(inputErrors);
+
+  const toggleType = () => {
+    setInputType((prevType) => (prevType === "password" ? "text" : "password"));
+  };
 
   return (
     <div className={cn(className)}>
@@ -50,13 +57,20 @@ export const InputField = ({
           />
         </div>
       ) : (
-        <input
-          id={id}
-          type={type}
-          className="input-field"
-          placeholder={placeholder}
-          {...register(name, validation)}
-        />
+        <div className="input-container">
+          <input
+            id={id}
+            type={inputType}
+            className="input-field"
+            placeholder={placeholder}
+            {...register(name, validation)}
+          />
+          {type === "password" && (
+            <div className="eye-icon">
+              <img src={eye} onClick={() => toggleType()} />
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
