@@ -6,7 +6,7 @@ import { FEEDS_PAGE } from "../../../pages/Feeds/constants";
 import Card from "../../atoms/Card";
 import "./index.css";
 
-function FeedCard({ userName, timeline, text, commentsCount }) {
+function FeedCard({ userName, timeline, text, commentsCount, edited }) {
   return (
     <Card>
       <div className="top-section">
@@ -17,9 +17,14 @@ function FeedCard({ userName, timeline, text, commentsCount }) {
           />
           <div className="name-section">
             <div className="name">{userName}</div>
-            {timeline && (
-              <div className="timeline">{`${timeline} ${FEEDS_PAGE.TIMELINE}`}</div>
-            )}
+            <div className="">
+              {timeline && (
+                <div className="timeline">{`${timeline} ${FEEDS_PAGE.TIMELINE}`}</div>
+              )}
+              {edited && (
+                <div className="timeline">{` ${FEEDS_PAGE.EDITED}`}</div>
+              )}
+            </div>
           </div>
         </div>
         <img className="dots-icon" src={dotsHorizontal} />
