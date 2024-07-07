@@ -1,6 +1,7 @@
 import cn from "classnames";
 import { useFormContext } from "react-hook-form";
 import { MdError } from "react-icons/md";
+import emoji from "../../../assets/icons/emoji.png";
 import { findInputError, isFormInvalid } from "../../../utils";
 import "./index.css";
 
@@ -11,13 +12,11 @@ export const InputField = ({
   id,
   placeholder,
   validation,
-  multiline,
+  multiline = false,
   className,
 }) => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
+  const { register = () => {}, formState = {} } = useFormContext() || {};
+  const { errors = {} } = formState;
 
   const inputErrors = findInputError(errors, name);
   const isInvalid = isFormInvalid(inputErrors);
@@ -25,9 +24,11 @@ export const InputField = ({
   return (
     <div className={cn(className)}>
       <div className="label-container">
-        <label htmlFor={id} className="label-text">
-          {label}
-        </label>
+        {label && (
+          <label htmlFor={id} className="label-text">
+            {label}
+          </label>
+        )}
         {isInvalid && (
           <InputError
             message={inputErrors.error.message}
@@ -36,13 +37,18 @@ export const InputField = ({
         )}
       </div>
       {multiline ? (
-        <textarea
-          id={id}
-          type={type}
-          className={cn("input-field")}
-          placeholder={placeholder}
-          {...register(name, validation)}
-        ></textarea>
+        <div className="multiline-container">
+          <div className="emoji">
+            <img src={emoji} />
+          </div>
+          <textarea
+            id={id}
+            type={type}
+            className={cn("multiline")}
+            placeholder={placeholder}
+            {...register(name, validation)}
+          />
+        </div>
       ) : (
         <input
           id={id}

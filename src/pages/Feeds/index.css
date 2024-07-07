@@ -1,0 +1,22 @@
+.feeds-container {
+  margin: 100px 30%;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 33.89px;
+  color: #c5c7ca;
+}
+
+.sub-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #7f8084;
+  margin-bottom: 40px;
+}
+
+.feed-card-wrapper {
+  margin: 16px 0;
+}

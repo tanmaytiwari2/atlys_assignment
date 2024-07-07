@@ -1,9 +1,21 @@
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import RootLayout from "./components/organisms/RootLayout";
-import LoginForm from "./pages/LoginForm";
+import Feeds from "./pages/Feeds";
+import Login from "./pages/Login/index";
 
-export const routes = [
+export const router = createBrowserRouter([
   {
+    path: "/",
     element: <RootLayout />,
-    children: [{ path: "/", element: <LoginForm /> }],
+    children: [
+      {
+        index: true,
+        element: <Login />,
+      },
+      {
+        path: "feeds",
+        element: <Feeds />,
+      },
+    ],
   },
-];
+]);

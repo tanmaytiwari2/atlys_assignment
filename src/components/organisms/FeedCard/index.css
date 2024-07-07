@@ -1,0 +1,78 @@
+.top-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-image {
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  margin-right: 16px;
+}
+
+.dots-icon {
+  cursor: pointer;
+}
+
+.name-section {
+  display: flex;
+  flex-direction: column;
+
+  .name {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.36px;
+    color: #c5c7ca;
+  }
+
+  .timeline {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.94px;
+    color: #7f8084;
+    margin-top: 4px;
+  }
+}
+
+.middle-section {
+  display: flex;
+  margin-top: 20px;
+  padding: 16px 29px 16px 16px;
+  background: #191920;
+  border-radius: 8px;
+  align-items: center;
+
+  .emoji {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #27292d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+    flex-shrink: 0;
+  }
+
+  .main-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #7f8084;
+  }
+}
+
+.lower-section {
+  display: flex;
+  margin-top: 14px;
+
+  .comment-count {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.94px;
+    color: #7f8084;
+    margin-left: 8px;
+    cursor: pointer;
+  }
+}
