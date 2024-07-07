@@ -83,13 +83,6 @@ textarea {
     background: transparent;
     border: none;
   }
-
-  input:-webkit-autofill {
-    transition: background-color 1s 5000s;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19.36px;
-  }
 }
 
 .emoji {

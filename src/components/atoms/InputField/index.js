@@ -63,6 +63,10 @@ export const InputField = ({
             type={inputType}
             className="input-field"
             placeholder={placeholder}
+            readOnly
+            onFocus={(event) => {
+              event.target.readOnly = false;
+            }}
             {...register(name, validation)}
           />
           {type === "password" && (
